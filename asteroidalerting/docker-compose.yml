@@ -1,4 +1,17 @@
 services:
+  mysql:
+    image: mysql:8.3.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: asteroidalerting
+    ports:
+      - "3306:3306"
+    volumes:
+      - .docker/mysql/init.sql:/docker-enterpoint-initdb.d/init.sql
+      - db-data:/var/lib/mysql
+      - db-data:/var/log/mysql
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
     hostname: zookeeper
@@ -50,4 +63,5 @@ services:
       SCHEMA_REGISTRY_LISTENERS: http://kafka-schema-registry:8081
 
 
-
+volumes:
+  db-data:
