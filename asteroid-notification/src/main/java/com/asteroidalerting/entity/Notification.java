@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.cglib.core.Local;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -23,7 +24,7 @@ public class Notification {
 
     private String asteroidName;
     private LocalDate closeApproachDate;
-    private String missDistanceKilometers;
+    private BigDecimal missDistanceKilometers;
     private double estimatedDiameterAvgMeters;
     private boolean emailSent;
 
